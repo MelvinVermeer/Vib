@@ -53,9 +53,9 @@
     },
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
-        "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
+        "webSiteName": "vib18",
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
-        "databaseName": "sampledb"
+        "databaseName": "production"
     },
     "resources": [
         {
