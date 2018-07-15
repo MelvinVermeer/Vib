@@ -8,8 +8,7 @@
 }
 
 <h4>@ViewData["Title"]</h4>
-@Html.Partial("_StatusMessage", Model.StatusMessage)
-
+@await Html.PartialAsync("_StatusMessage", Model.StatusMessage)
 
 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
     <p>Ingelogd als : @UserManager.GetUserName(User)</p>
