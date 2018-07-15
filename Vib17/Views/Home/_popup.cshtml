@@ -1,0 +1,43 @@
+﻿@model Session
+
+<div class="js-modal-content modal-content">
+
+    <div class="js-modal-close modal-close" data-session-id="@Model.Id">
+        @* Een kruis *@
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+    </div>
+
+    <h3>@Model.Title</h3>
+
+    <div class="info">
+        <div class="info-location">@Model.Location</div>
+        <div class="info-time">Tijd: @Model.TimeSlot.Title</div>
+        <div class="info-speaker">@Model.Speaker</div>
+    </div>
+
+    <div class="description" style="white-space:pre-line">
+        @Model.Description
+    </div>
+
+    <div class="modal-footer">
+        @if (Model.IsOptional)
+        {
+            <div class="already-subscribed-in-slot">
+                Je bent al ingeschreven bij een andere sessie in dit slot, aanmelden voor deze sessie zorgt ervoor dat je automatisch bij de andere sessie wordt uitgeschreven
+            </div>
+
+            <button class="subscribe js-subscribe" data-session-id="@Model.Id">aanmelden</button>
+            <button class="unsubscribe js-unsubscribe" data-session-id="@Model.Id">afmelden</button>
+        } else {
+            <p class="group-session">
+                Deze sessie is voor iedereen
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="341 159 25 11.842">
+                    <path d="M9.954,7.037a9.356,9.356,0,0,1,2.4-.343,9.356,9.356,0,0,1,2.4.343,8.966,8.966,0,0,1,2.4,1.03,1.94,1.94,0,0,1,1.087,1.6v2.117H6.465V9.668a1.871,1.871,0,0,1,1.087-1.6A8.966,8.966,0,0,1,9.954,7.037ZM14.13,4.291a2.486,2.486,0,0,1-3.547,0A2.379,2.379,0,0,1,9.84,2.517,2.379,2.379,0,0,1,10.584.744,2.5,2.5,0,0,1,12.414,0a2.379,2.379,0,0,1,1.773.744,2.558,2.558,0,0,1,.686,1.773A2.294,2.294,0,0,1,14.13,4.291Zm6.751,0a2.486,2.486,0,0,1-3.547,0,2.294,2.294,0,0,1-.744-1.773A2.379,2.379,0,0,1,17.334.744a2.486,2.486,0,0,1,3.547,0,2.379,2.379,0,0,1,.744,1.773A2.116,2.116,0,0,1,20.881,4.291Zm-1.773,2.46a9.356,9.356,0,0,1,2.4.343,8.966,8.966,0,0,1,2.4,1.03A1.94,1.94,0,0,1,25,9.725v2.117H19.908V9.725a3.57,3.57,0,0,0-1.659-2.918A4.052,4.052,0,0,1,19.108,6.751ZM3.375,2.517A2.379,2.379,0,0,1,4.119.744,2.5,2.5,0,0,1,5.95,0,2.379,2.379,0,0,1,7.723.744a2.379,2.379,0,0,1,.744,1.773,2.379,2.379,0,0,1-.744,1.773,2.379,2.379,0,0,1-1.773.744,2.379,2.379,0,0,1-1.773-.744A2.346,2.346,0,0,1,3.375,2.517ZM6.751,6.751A3.57,3.57,0,0,0,5.092,9.668v2.117H0V9.668a1.871,1.871,0,0,1,1.087-1.6,8.966,8.966,0,0,1,2.4-1.03,9.356,9.356,0,0,1,2.4-.343A5.282,5.282,0,0,0,6.751,6.751Z" transform="translate(341 159)"></path>
+                </svg>
+            </p>
+        }
+    </div>
+</div>

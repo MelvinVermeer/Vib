@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Session>
+@{
+    ViewData["Title"] = "Sessions";
+}
+<h2>Sessions</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.TimeSlot.Title - @item.Title -
+
+            @if (item.IsOptional)
+            {
+                <span>@item.Attendees.Count</span>
+
+                @if (item.HasLimit)
+                {
+                    <span>/@item.Limit</span>
+                }
+
+                <span> deelnemers</span>
+            }
+
+            <a asp-action="EditSession" asp-controller="Admin" asp-route-id="@item.Id">bewerk</a>
+        </li>
+    }
+</ul>
+
+<a asp-action="NewSession" asp-controller="Admin">Nieuwe sessie</a> <br />
+<a asp-action="NewTimeSlot" asp-controller="Admin">Nieuw Tijdslot</a>

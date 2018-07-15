@@ -1,0 +1,73 @@
+﻿@model Session
+
+@{
+    ViewData["Title"] = "EditSession";
+}
+<h2>EditSession</h2>
+<form asp-action="SaveSession">
+    <input type="hidden" asp-for="Id" />
+
+    <p>
+        <input asp-for="Title" />
+    </p>
+    <p>
+        <input asp-for="IsOptional" />
+        <label asp-for="IsOptional"></label>
+    </p>
+
+    <p>
+        <label asp-for="Limit"></label>
+        <input asp-for="Limit" />
+    </p>
+
+    <p>
+        <label asp-for="TimeSlotId"></label>
+        <select asp-for="TimeSlotId" asp-items="ViewBag.TimeSlots"></select>
+    </p>
+
+    <p>
+        <label asp-for="Speaker"></label>
+        <input asp-for="Speaker" />
+    </p>
+
+    <p>
+        <label asp-for="Location"></label>
+        <input asp-for="Location" />
+    </p>
+
+    <p>
+        <label asp-for="Description"></label>
+        <textarea rows="20" cols="80" asp-for="Description" placeholder="Omschrijving"></textarea>
+    </p>
+
+
+    <p>
+        <a asp-action="Sessions" asp-controller="Admin">Annuleren</a>
+        <button type="submit">Opslaan</button>
+    </p>
+</form>
+
+@if (Model.IsOptional)
+{
+    <h2>
+        Deelnemers
+   
+        @if (Model.HasLimit)
+        {
+            <span>(@Model.Attendees.Count/@Model.Limit)</span>
+        }
+        else
+        {
+            <span>(@Model.Attendees.Count)</span>
+        }
+    </h2>
+
+    <ul>
+        @foreach (var attendee in Model.Attendees.Select(u => u.User))
+        {
+            <li>
+                @attendee.UserName
+            </li>
+        }
+    </ul>
+}

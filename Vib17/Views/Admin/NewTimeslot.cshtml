@@ -1,0 +1,26 @@
+﻿@model TimeSlot
+
+@{
+    ViewData["Title"] = "NewTimeslot";
+}
+
+<h2>new timeslot</h2>
+
+<form asp-action="SaveTimeSlot">
+
+    <p>
+        <input type="time" asp-for="Start" />
+    </p>
+    <p>
+        <input type="time" asp-for="End" />
+    </p>
+
+    timeslot - +new slot
+
+    <p>
+        <a asp-action="Timeslots" asp-controller="Admin">Annuleren</a>
+        <button type="submit">Opslaan</button>
+    </p>
+
+
+</form>

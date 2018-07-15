@@ -1,0 +1,11 @@
+queue:
+  name: Hosted VS2017
+steps:
+- script: dotnet restore
+  displayName: Restore
+
+- script: dotnet build
+  displayName: Build
+
+- script: dotnet publish
+  displayName: Publish

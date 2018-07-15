@@ -1,0 +1,27 @@
+﻿@model Session
+
+@{
+    ViewData["Title"] = "NewSession";
+}
+
+<h2>NewSession</h2>
+
+<form asp-action="SaveSession">
+
+    <p>
+        <input asp-for="Title" />
+    </p>
+    <p>
+        <input asp-for="IsOptional" />
+    </p>
+    
+    <p>
+        <select asp-for="TimeSlotId" asp-items="ViewBag.TimeSlots"></select> 
+        +new slot
+        </p>
+    <p>
+        <a asp-action="Sessions" asp-controller="Admin">Annuleren</a>
+        <button type="submit">Opslaan</button>
+    </p>
+
+</form>
