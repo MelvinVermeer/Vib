@@ -116,14 +116,14 @@ namespace Vib17.Controllers
             {
                 slot = await _db.Timeslots.SingleAsync(s => s.Id == input.Id);
                 slot.Start = new DateTimeOffset(2017, 11, 8, input.Start.Hour, input.Start.Minute, 0, input.Start.Offset);
-                slot.End = new DateTimeOffset(2017, 11, 8, input.Start.Hour, input.End.Minute, 0, input.End.Offset);
+                slot.End = new DateTimeOffset(2017, 11, 8, input.End.Hour, input.End.Minute, 0, input.End.Offset);
             }
             else
             {
                 _db.Timeslots.Add(new TimeSlot
                 {
                     Start = new DateTimeOffset(2017, 11, 8, input.Start.Hour, input.Start.Minute,0, input.Start.Offset),
-                    End = new DateTimeOffset(2017, 11, 8, input.Start.Hour, input.End.Minute, 0, input.End.Offset)
+                    End = new DateTimeOffset(2017, 11, 8, input.End.Hour, input.End.Minute, 0, input.End.Offset)
                 });
             }
 
