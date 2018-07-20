@@ -295,17 +295,18 @@ namespace Vib17.Controllers
             }
             else
             {
-                //
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-
                 var user = new ApplicationUser { UserName = email, Email = email };
+
                 var result2 = await _userManager.CreateAsync(user);
                 if (result2.Succeeded)
                 {
                     result2 = await _userManager.AddLoginAsync(user, info);
                     if (result2.Succeeded)
                     {
+                        await EnsureSystemHasAdmin(user);
                         await _signInManager.SignInAsync(user, isPersistent: false);
+
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
                         return RedirectToLocal(returnUrl);
                     }
@@ -318,6 +319,16 @@ namespace Vib17.Controllers
                 ViewData["ReturnUrl"] = returnUrl;
                 ViewData["LoginProvider"] = info.LoginProvider;
                 return View("ExternalLogin", new ExternalLoginViewModel { Email = email });
+            }
+        }
+
+        private async Task EnsureSystemHasAdmin(ApplicationUser user)
+        {
+            var admins = await _userManager.GetUsersInRoleAsync("Admin");
+
+            if (!admins.Any())
+            {
+                await _userManager.AddToRoleAsync(user, "Admin");
             }
         }
 

@@ -65,14 +65,8 @@ namespace Vib17
 
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var db = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-                db.Database.Migrate();
-
-                if (!db.Roles.Any(x => x.Name == "Admin"))
-                {
-                    db.Roles.Add(new IdentityRole("Admin"));
-                    db.SaveChanges();
-                }
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+                roleManager.CreateAsync(new IdentityRole("Admin")).Wait();
             }
         }
 
