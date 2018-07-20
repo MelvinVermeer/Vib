@@ -1,20 +1,7 @@
-﻿@model IndexViewModel
-
-@inject UserManager<ApplicationUser> UserManager
-
-@{
-    ViewData["Title"] = "Profile";
-    //ViewData.AddActivePage(ManageNavPages.Index);
-}
-
-<h4>@ViewData["Title"]</h4>
-@await Html.PartialAsync("_StatusMessage", Model.StatusMessage)
+﻿@inject UserManager<ApplicationUser> UserManager
 
 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
     <p>Ingelogd als : @UserManager.GetUserName(User)</p>
     <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
 </form>
 
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
