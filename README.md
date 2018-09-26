@@ -13,7 +13,7 @@ Deze applicatie maakt gebruik van Google en Facebook authenticatie. Zorg ervoor 
 - Authentication:Google:ClientSecret
 
 Of als je de applicatie lokaal wilt draaien zorg voor een appsecrets.json die er alsvolgt uitziet:
-
+Als je er ten minste 1 implementeert dan kun je de app zelf testen. Hoe je een app registratie doet  bij een van de providers staat uitgelegd op de [Microsoft docs](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-2.1).
 ```
 {
   "Authentication": {
@@ -24,6 +24,10 @@ Of als je de applicatie lokaal wilt draaien zorg voor een appsecrets.json die er
     "Google": {
       "ClientId": "...",
       "ClientSecret": "..."
+    },
+	"Microsoft": {
+      "ApplicationId": "...",
+      "Password": "..."
     }
   }
 }
