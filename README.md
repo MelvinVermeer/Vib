@@ -25,7 +25,7 @@ Als je er ten minste 1 implementeert dan kun je de app zelf testen. Hoe je een a
       "ClientId": "...",
       "ClientSecret": "..."
     },
-	"Microsoft": {
+    "Microsoft": {
       "ApplicationId": "...",
       "Password": "..."
     }
