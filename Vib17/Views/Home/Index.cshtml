@@ -21,6 +21,7 @@
                     @foreach (var item in Model.Where(session => session.TimeSlotId == slot.Id))
                     {
                         <li class="@item.ClassList(User)" data-session-id="@item.Id">
+                            
 
                             <div>
                                 <span class="subscribed-message">
