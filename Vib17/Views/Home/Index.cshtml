@@ -9,7 +9,7 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h2>Programma Carrièredag</h2>
+    <h2>Program Career day Human Movement sciences 7 november</h2>
 
     <ul>
         @foreach (var slot in Model.Select(x => x.TimeSlot).Distinct())
@@ -21,6 +21,7 @@
                     @foreach (var item in Model.Where(session => session.TimeSlotId == slot.Id))
                     {
                         <li class="@item.ClassList(User)" data-session-id="@item.Id">
+                            
 
                             <div>
                                 <span class="subscribed-message">
@@ -34,7 +35,7 @@
                                 @item.Title 
                             
                                 <span class="full-message">
-                                    Vol
+                                    Full
                                 </span>
 
                                 <span class="group">
@@ -54,10 +55,21 @@
 else
 {
     <p>
-        Welkom op de inschrijfpagina voor de Carrièredag van Bewegingswetenschappen.
-        De Carrièredag vindt plaats op woensdag 7 november.
-        Log hieronder in om het programma te kunnen bekijken en je aan te melden
-        voor de workshops.
+        Welcome to the Career day of Human movement sciences!
+    </p>
+     <p>   
+        This event takes place in the afternoon of the 7th of November. 
+        Enter the site below to see the complete program and to enroll yourself. 
+        Here you can also enroll yourself for the workshops of this day. First there is an opening lecture, there after you can visit diverse workshops in two rounds. 
+        At the end of the afternoon there will be a company fair at the Loopzaal in the Medical Faculty. 
+        A good place to network for an Internship or a research project. 
+        Hope to see you on the 7th of November! 
+    </p>
+    <p>
+        Kinds regards,</br></br>
+        Career day Committee</br>
+        Contact us if you got any questions</br>
+             
     </p>
 
     <div>
