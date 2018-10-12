@@ -5,7 +5,7 @@ $dark-gray: #C4C4C4;
 $darker-gray: #343434;
 $green: #10cb10;
 $red: #cb1010;
-
+$breakpoint: 600px;
 $background-color: $light-gray;
 $container-color: $white;
 $text-color: $gray;
@@ -35,13 +35,19 @@ $margin: $spacing;
 $padding: $spacing;
 
 body {
-    background-color: $background-color;
+    background-color: #343434;
     color: $text-color;
     font-family: -apple-system, BlinkMacSystemFont,'Roboto', sans-serif;
     font-size: $font-size;
     line-height: $line-height;
     margin: 0;
     padding: 0;
+}
+
+.main-container {
+    background-color: $background-color;
+    max-width: $breakpoint;
+    margin: auto;
 }
 
 ul{
@@ -233,7 +239,7 @@ button{
     padding: 0 $padding;
     padding-bottom: $padding * 11;
     top: 0;
-    width: 100vw;
+    width: 100vw;    
     z-index: 10;
     opacity: 0;
     pointer-events: none;
